@@ -49,7 +49,6 @@ export default function Login() {
     try {
       const user = await signInWithGoogle(navigation);
       if (user) {
-        alert(`Bienvenido ${user.displayName}`);
   
         
         const userRef = doc(collection(db, "users"), user.uid);
