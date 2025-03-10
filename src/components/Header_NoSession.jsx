@@ -66,6 +66,7 @@ export default function Header_NoSession() {
                 ):(
 
                   <>
+                    <span>{profile.name}</span>
                     <button onClick={handleLogout} className="items-center bg-orange-600 hover:bg-orange-950 active:bg-orange-600 font-bold shadow-xl rounded-xl w-40 h-12 text-amber-50 text-xl 
                     transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                     Cerrar Sesión 
