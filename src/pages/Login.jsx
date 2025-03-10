@@ -28,7 +28,7 @@ export default function Login() {
       setEmail('')
       setPassword('')
       setLoading(false)
-      navigation('/home')
+      navigation('/')
 
     } catch (error) {
       setLoading(false)
@@ -49,7 +49,7 @@ export default function Login() {
     if(user){
       alert(`Bienvenido ${user.displayName}`)
       
-      navigation('/home')}
+      navigation('/')}
     else{
       setError("Error al iniciar sesión con Google")
     }

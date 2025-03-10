@@ -23,7 +23,7 @@ export const signInWithGoogle = async (navigate) => {
   const provider = new GoogleAuthProvider();
   try{
     const result=await signInWithPopup(auth,provider)
-    navigate('/home')
+    navigate('/')
     return result.user;
     }catch(error){
       console.error('Error al autenticar con Google',error)
