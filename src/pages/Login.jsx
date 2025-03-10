@@ -4,6 +4,8 @@ import { app } from '../credentials';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Logo_responsive } from '../components/Logo_responsive';
 import {signInWithGoogle} from "../credentials";
+import { db } from "../credentials"; 
+import { collection, doc, setDoc } from "firebase/firestore";
 
 const auth = getAuth(app);
 export default function Login() {
@@ -13,7 +15,7 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const [googleError, setGoogleError] = useState('')
+ 
 
   
   
@@ -43,17 +45,30 @@ export default function Login() {
     }
   }
 
-  const handleGoogleLogin = async()=>{
-    const user=await signInWithGoogle(navigation);
-    
-    if(user){
-      alert(`Bienvenido ${user.displayName}`)
-      
-      navigation('/home')}
-    else{
-      setError("Error al iniciar sesión con Google")
+  const handleGoogleLogin = async () => {
+    try {
+      const user = await signInWithGoogle(navigation);
+      if (user) {
+        alert(`Bienvenido ${user.displayName}`);
+  
+        
+        const userRef = doc(collection(db, "users"), user.uid);
+        await setDoc(userRef, {
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+          uid: user.uid
+        }, { merge: true });
+  
+        navigation('/home');
+      } else {
+        setError("Error al iniciar sesión con Google");
+      }
+    } catch (error) {
+      console.error("Error en login con Google:", error);
+      setError("Error al iniciar sesión con Google");
     }
-  }
+  };
 
   return (
     <div className='bg-gray-800 w-full h-screen flex justify-center items-center'>
