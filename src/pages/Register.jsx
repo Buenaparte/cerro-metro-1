@@ -42,7 +42,7 @@ export default function Register() {
       setApellido('')
       setTelefono('')
       setLoading(false)
-      navigation('/home')
+      navigation('/')
       
     } catch (error) {
       setLoading(false)
@@ -99,7 +99,7 @@ export default function Register() {
       });
 
       setLoading(false);
-      navigation('/home'); 
+      navigation('/'); 
 
     } catch (error) {
       setLoading(false);

@@ -30,7 +30,7 @@ export default function Login() {
       setEmail('')
       setPassword('')
       setLoading(false)
-      navigation('/home')
+      navigation('/')
 
     } catch (error) {
       setLoading(false)
@@ -97,7 +97,8 @@ export default function Login() {
             transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
               Ingresar</button>
 
-              <button type="button" onClick={handleGoogleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              <button type="button" onClick={handleGoogleLogin} className="bg-blue-500 hover:bg-blue-700 active:bg-blue-900 font-bold shadow-xl rounded-xl w-65 h-8 text-amber-50 text-xl 
+            transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
                <span>Iniciar sesión con Google</span>
              </button>
             
