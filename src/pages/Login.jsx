@@ -60,7 +60,7 @@ export default function Login() {
           uid: user.uid
         }, { merge: true });
   
-        navigation('/home');
+        navigation('/');
       } else {
         setError("Error al iniciar sesión con Google");
       }
