@@ -10,6 +10,8 @@ const auth = getAuth(app);
 export default function Register() {
   const navigation = useNavigate()
   const [name, setName] = useState('')
+  const [apellido, setApellido] = useState('')
+  const [telefono, setTelefono] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -25,6 +27,8 @@ export default function Register() {
 
       await setDoc( doc(db, 'users', nombreRegistrado.user.uid),{
         nombre:name,
+        apellido: apellido,
+        telefono:telefono,
         email:email,
         uid: nombreRegistrado.user.uid,
         fechaCreacion : new Date()
@@ -33,6 +37,8 @@ export default function Register() {
       setName('')
       setEmail('')
       setPassword('')
+      setApellido('')
+      setTelefono('')
       setLoading(false)
       navigation('/home')
       
@@ -61,9 +67,7 @@ export default function Register() {
   }
 
   return (
-      <div className='bg-gray-800 w-full h-screen flex justify-center items-center'>
-          
-          
+      <div className='bg-gray-800 w-full h-screen flex justify-center items-center'>       
           <form onSubmit={handleRegister} className="flex flex-col gap-4 bg-amber-50 rounded-2xl w-xl h-svw
           justify-center items-center shadow-2xl " >
               <Logo_responsive className="!relative !w-[201.72px] !h-[80px]" />
@@ -80,6 +84,16 @@ export default function Register() {
                 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" type="text" name="name"/>
               </label>
               <label className="block text-sm/6 font-medium text-gray-900">
+                  Apellido :  
+                  <input value={apellido} onChange={(e)=>setApellido(e.target.value)} className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 
+                -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" type="text" name="apellido"/>
+              </label>
+              <label className="block text-sm/6 font-medium text-gray-900">
+                  Telefono :  
+                  <input value={telefono} onChange={(e)=>setTelefono(e.target.value)} className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 
+                -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" type="telefono" name="telefono"/>
+              </label>
+              <label className="block text-sm/6 font-medium text-gray-900">
                   Password :  
                   <input value={password} onChange={(e)=>setPassword(e.target.value)} className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 
                 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" type="password" name="password"/>
@@ -88,6 +102,7 @@ export default function Register() {
               transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100">
                 Ingresar</button>
               <Link className="text-blue-500 font-bold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100" to="/login">Si ya tienes usuario haz login</Link>
+              
           </form>
       </div>
   )
