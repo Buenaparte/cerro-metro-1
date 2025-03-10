@@ -1,5 +1,5 @@
 import { Logo_responsive } from "./Logo_responsive.jsx";
-import React, {use} from 'react';
+import React, {use, useContext} from 'react';
 import Boton_primario from "./Boton_primario.jsx";
 import Boton_secundario from "./Boton_secundario.jsx";
 import { Link } from "react-router";

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import {getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from '../credentials';
-import { Link, useNavigate } from 'react-router';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Logo_responsive } from '../components/Logo_responsive';
+import {signInWithGoogle} from "../credentials";
 
 const auth = getAuth(app);
 export default function Login() {
@@ -12,6 +13,9 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [googleError, setGoogleError] = useState('')
+
+  
   
   const handleLogin = async(e)=>{
     e.preventDefault()
@@ -38,6 +42,19 @@ export default function Login() {
       
     }
   }
+
+  const handleGoogleLogin = async()=>{
+    const user=await signInWithGoogle(navigation);
+    
+    if(user){
+      alert(`Bienvenido ${user.displayName}`)
+      
+      navigation('/home')}
+    else{
+      setError("Error al iniciar sesión con Google")
+    }
+  }
+
   return (
     <div className='bg-gray-800 w-full h-screen flex justify-center items-center'>
         <form onSubmit={handleLogin} className="flex flex-col gap-4 bg-amber-50 rounded-2xl w-xl h-svw justify-center items-center shadow-2xl " >
@@ -64,6 +81,11 @@ export default function Login() {
             <button type="submit" className="bg-orange-600 hover:bg-orange-950 active:bg-orange-600 font-bold shadow-xl rounded-xl w-30 h-8 text-amber-50 text-xl 
             transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
               Ingresar</button>
+
+              <button type="button" onClick={handleGoogleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+               <span>Iniciar sesión con Google</span>
+             </button>
+            
             <Link className="text-blue-500 font-bold " to="/register">Si aún no tienes usuario registrate</Link>
         </form>
     </div>
