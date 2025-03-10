@@ -29,7 +29,7 @@ export default function Header_NoSession() {
   console.log(logged, profile)
   const principal_colors = "text-orange-600 hover:text-orange-950 active:text-orange-600"
   return (
-    <div className="w-full bg-gray-300 w-screen top-0 left-0 shadow-md z-50 font-bold relative">
+    <div className="bg-linear-to-r from-gray-200 to-gray-500 w-screen top-0 left-0 shadow-md z-50 font-bold">
       <div className="flex flex-col w-full items-center justify-center px-20 py-2">
         <div className="flex flex-col w-full items-center justify-center">
           <div className="flex w-full items-center justify-between">
