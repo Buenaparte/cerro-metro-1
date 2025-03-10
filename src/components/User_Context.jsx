@@ -11,7 +11,7 @@ const db = getFirestore(app)
 
 const UserProvider = ({children}) => {
 
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState("")
     const [profile, setProfile] = useState({})
     const [logged, setLogged] = useState(false)
 
