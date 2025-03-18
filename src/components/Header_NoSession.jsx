@@ -2,7 +2,7 @@ import { Logo_responsive } from "./Logo_responsive.jsx";
 import React, {use, useContext} from 'react';
 import Boton_primario from "./Boton_primario.jsx";
 import Boton_secundario from "./Boton_secundario.jsx";
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { UserContext } from "./User_Context.jsx";
 import { app } from "../credentials.js";
 import { getAuth, signOut } from "firebase/auth";
@@ -10,6 +10,7 @@ import { getAuth, signOut } from "firebase/auth";
 const auth = getAuth(app)
 
 export default function Header_NoSession() {
+  const navigation = useNavigate()
   const profileContext = use(UserContext)
   const {logged,profile, setLogged} = profileContext
 
@@ -29,7 +30,7 @@ export default function Header_NoSession() {
   console.log(logged, profile)
   const principal_colors = "text-orange-600 hover:text-orange-950 active:text-orange-600"
   return (
-    <div className="bg-linear-to-r from-gray-200 to-gray-500 w-screen top-0 left-0 shadow-md z-50 font-bold">
+    <div className="bg-linear-to-r bg-gray-200 w-screen top-0 left-0 shadow-md z-50 font-bold">
       <div className="flex flex-col w-full items-center justify-center px-20 py-2">
         <div className="flex flex-col w-full items-center justify-center">
           <div className="flex w-full items-center justify-between">
@@ -40,20 +41,13 @@ export default function Header_NoSession() {
                   Principal
                 </Link>
                 <div className="w-0.5 h-7 bg-orange-950 rounded" />
-                  {logged && (
-                    <>
-                      <Link to="/profile" className={principal_colors}>
-                        Perfil
-                      </Link>
-                      <div className="w-0.5 h-7 bg-orange-950 rounded" />
-                    </>
-                  )}
-                  <Link to="/reviews" className={principal_colors}>
-                    Reseñas
+                  
+                  <Link to="/membership" className={principal_colors}>
+                    Membresías
                   </Link>
                 <div className="w-0.5 h-7 bg-orange-950 rounded" />
-                <Link to="/blogs" className={principal_colors}>
-                  Blogs
+                <Link to="/booking" className={principal_colors}>
+                  Agenda
                 </Link>
               </div>
               <div className="flex gap-6">
@@ -66,7 +60,9 @@ export default function Header_NoSession() {
                 ):(
 
                   <>
-                    <span className="w-55 object-bottom mt-5 text-orange-950">{profile.name}</span>
+                    <button onClick={navigation("/profile")} className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 items-center">
+                        <svg className="bg-center w-10 h-10 text-gray-400 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
+                    </button>
                     <button onClick={handleLogout} className="items-center ">
                       
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-8 text-orange-950 text-6xl hover:text-orange-600 active:bg-orange-400 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
