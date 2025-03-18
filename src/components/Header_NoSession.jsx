@@ -66,9 +66,12 @@ export default function Header_NoSession() {
                 ):(
 
                   <>
-                    <button onClick={handleLogout} className="items-center bg-orange-600 hover:bg-orange-950 active:bg-orange-600 font-bold shadow-xl rounded-xl w-40 h-12 text-amber-50 text-xl 
-                    transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
-                    Cerrar Sesión 
+                    <span className="w-55 object-bottom mt-5 text-orange-950">{profile.name}</span>
+                    <button onClick={handleLogout} className="items-center ">
+                      
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-8 text-orange-950 text-6xl hover:text-orange-600 active:bg-orange-400 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+                        <path fillRule="evenodd" d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z" clipRule="evenodd" />
+                      </svg>
                     </button>
                   
                   </>)}
