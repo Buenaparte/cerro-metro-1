@@ -11,7 +11,7 @@ export default function Actividades({Ruta}) {
         <p>{Ruta.Descripcion}</p>
         </div>
      <div className='text-right' >
-         <Boton_primario text="Reservar" link="/"/>
+         <Boton_primario text="Reservar" link="/booking"/>
      </div>
      <br></br> 
     </>
