@@ -5,18 +5,23 @@ export function Payment() {
   const navigate = useNavigate();
   const location = useLocation();
   const reservedDate = location.state?.fecha || "No seleccionada";
-  const pricePerAdult = 124; 
-  const pricePerChild_Oldman = 71; 
+  const pricePerAdult = 124;
+  const pricePerChild_Oldman = 71;
 
-  const [adultQuantity, setAdultQuantity] = useState(0); 
-  const [childOldmanQuantity, setChildOldmanQuantity] = useState(0); 
+  const [adultQuantity, setAdultQuantity] = useState(0);
+  const [childOldmanQuantity, setChildOldmanQuantity] = useState(0);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const newTotal = adultQuantity * pricePerAdult + childOldmanQuantity * pricePerChild_Oldman;
     setTotal(newTotal);
-    localStorage.setItem("totalPagar", newTotal); 
-  }, [adultQuantity, childOldmanQuantity]); 
+    localStorage.setItem("totalPagar", newTotal);
+  }, [adultQuantity, childOldmanQuantity]);
+
+  const handleVolver = () => {
+    
+    navigate("/booking", { state: { fecha: reservedDate } });
+  };
 
   return (
     <div>
@@ -42,7 +47,7 @@ export function Payment() {
       <p>Total a pagar: Bs.S {total.toFixed(2)}</p>
 
       <button onClick={() => navigate("/payment-method")}>Pagar</button>
-      <button onClick={() => navigate("/booking")}>Volver</button>
+      <button onClick={handleVolver}>Volver</button>
     </div>
   );
 }
