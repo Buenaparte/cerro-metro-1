@@ -22,7 +22,7 @@ export function PaymentMethod() {
       return;
     }
     alert(`Pago exitoso. Gracias por tu compra, ${nombre}!`);
-    navigate("/home");
+    navigate("/");
   };
 
   return (
