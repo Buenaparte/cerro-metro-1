@@ -32,7 +32,6 @@ export function Booking() {
     <>
     <Header_NoSession/>
     <div>
-     <Header_NoSession/>
       <h1>Reserva tu Ruta</h1>
       <DatePicker
         selected={fechaSeleccionada}

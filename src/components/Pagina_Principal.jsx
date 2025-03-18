@@ -67,7 +67,7 @@ export default function Frame1_Home() {
                 </dl>
             </div>
         </div>
-        <footer className="bg-linear-to-r from-gray-200 to-gray-700  w-screen bottom-0 mt-20">
+        <footer className="bg-linear-to-r bg-gray-200  w-screen bottom-0 mt-20">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="sm:flex sm:items-center sm:justify-between">

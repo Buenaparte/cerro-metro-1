@@ -8,7 +8,7 @@ import Profile from './pages/Profile'
 import { Booking } from './pages/Booking' 
 import { Payment } from './pages/Payment'
 import { PaymentMethod } from './pages/PaymentMethod'
-import { Membership } from './pages/Membreship' 
+import { Membership } from './pages/Membership' 
 import Search_Routes from './pages/Search_Routes'
 import Informacion_Rutas from './pages/Informacion_Rutas'
 
