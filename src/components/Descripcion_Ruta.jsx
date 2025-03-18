@@ -6,7 +6,7 @@ export default function descripcion_Ruta({Ruta}) {
     <>
         <img src = {Ruta.Imagen2} alt='avila 2' className='h-60 w-100 object-contain'/>
         <br></br> 
-        <h1>Dificultad: {Ruta.Dificultad} revisar como se hacen las estrellas</h1>  
+        <h1>Dificultad: {Ruta.Dificultad}/5 revisar como se hacen las estrellas</h1>  
         <br></br> 
         <h2>{Ruta.Titulo}</h2>
         <h3>Descripcion de la Ruta</h3>

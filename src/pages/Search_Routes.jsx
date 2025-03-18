@@ -5,8 +5,8 @@ import {collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from "../credentials"; 
 import Header_NoSession from '../components/Header_NoSession'
 import Buscador from '../components/Buscador'
-import Filtro from '../components/Filtro'
 import Formato_Rutas from '../components/Formato_Rutas'
+import Boton_primario from '../components/Boton_primario'
 
 
 export default function search_routes() {
@@ -37,10 +37,10 @@ export default function search_routes() {
     <>
     <Header_NoSession/>
     <Buscador/>
-    <Filtro/>
     <div className="productos">
             { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
         </div>
+         <Boton_primario text="Crear Rutas" link="/Creacion_Rutas"/>
     </> 
   )
 }
