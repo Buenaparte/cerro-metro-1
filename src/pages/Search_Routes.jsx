@@ -33,12 +33,14 @@ export default function search_routes() {
       
   }, [categoria])
 
+  console.log(productos)
+
   return (
     <>
     <Header_NoSession/>
     <Buscador/>
     <Filtro/>
-    <div className="productos">
+    <div className="productos text-start rounded-2xl">
             { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
         </div>
     </> 

@@ -34,6 +34,7 @@ export function Booking() {
     <div>
       <h1>Reserva tu Ruta</h1>
       <DatePicker
+        className="bg-gray-600"
         selected={fechaSeleccionada}
         onChange={handleSeleccionFecha}
         minDate={new Date()} 

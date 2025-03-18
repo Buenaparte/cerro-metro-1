@@ -46,7 +46,7 @@ export default function Header_NoSession() {
                     Membresías
                   </Link>
                 <div className="w-0.5 h-7 bg-orange-950 rounded" />
-                <Link to="/booking" className={principal_colors}>
+                <Link to="/search_routes" className={principal_colors}>
                   Agenda
                 </Link>
               </div>
