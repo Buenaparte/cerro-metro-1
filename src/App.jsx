@@ -11,7 +11,7 @@ import { PaymentMethod } from './pages/PaymentMethod'
 import { Membership } from './pages/Membreship' 
 import Search_Routes from './pages/Search_Routes'
 import Informacion_Rutas from './pages/Informacion_Rutas'
-import Creacion_Rutas from './pages/Creacion_rutas'
+import Creacion_Rutas from './pages/Creacion_Rutas'
 
 export default function App() {
   return (
