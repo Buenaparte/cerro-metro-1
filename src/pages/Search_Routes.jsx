@@ -33,11 +33,18 @@ export default function search_routes() {
       
   }, [categoria])
 
+  console.log(productos)
+
   return (
     <>
     <Header_NoSession/>
     <Buscador/>
+<<<<<<< HEAD
     <div className="productos">
+=======
+    <Filtro/>
+    <div className="productos text-start rounded-2xl">
+>>>>>>> Luis-Angulo
             { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
         </div>
          <Boton_primario text="Crear Rutas" link="/Creacion_Rutas"/>

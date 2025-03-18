@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import Header_NoSession from "../components/Header_NoSession";
+
 
 export function Payment() {
   const navigate = useNavigate();
@@ -24,7 +26,9 @@ export function Payment() {
   };
 
   return (
+    
     <div>
+      <Header_NoSession/>
       <h1>Pagar Reserva</h1>
       <p>Fecha reservada: {reservedDate}</p>
 

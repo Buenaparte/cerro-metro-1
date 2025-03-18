@@ -95,10 +95,16 @@ export function Booking() {
   }, [usuario]);
 
   return (
+    <>
+    <Header_NoSession/>
     <div>
+<<<<<<< HEAD
       <Header_NoSession />
+=======
+>>>>>>> Luis-Angulo
       <h1>Reserva tu Ruta</h1>
       <DatePicker
+        className="bg-gray-600"
         selected={fechaSeleccionada}
         onChange={handleSeleccionFecha}
         minDate={new Date()} 
@@ -108,5 +114,6 @@ export function Booking() {
       />
       <button onClick={handleContinuar}>Continuar</button>
     </div>
+    </>
   );
 }
