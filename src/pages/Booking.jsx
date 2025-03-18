@@ -2,7 +2,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header_NoSession from "../components/Header_NoSession";
+import Header_NoSession from '../components/Header_NoSession'
 
 const fechasOcupadas = ["2025-01-15", "2025-01-22", "2025-01-30"].map(
   (fecha) => new Date(fecha)
@@ -32,6 +32,7 @@ export function Booking() {
     <>
     <Header_NoSession/>
     <div>
+     <Header_NoSession/>
       <h1>Reserva tu Ruta</h1>
       <DatePicker
         selected={fechaSeleccionada}

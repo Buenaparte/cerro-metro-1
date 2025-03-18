@@ -8,8 +8,9 @@ import Profile from './pages/Profile'
 import { Booking } from './pages/Booking' 
 import { Payment } from './pages/Payment'
 import { PaymentMethod } from './pages/PaymentMethod'
-import { Membership } from './pages/Membership' 
-
+import { Membership } from './pages/Membreship' 
+import Search_Routes from './pages/Search_Routes'
+import Informacion_Rutas from './pages/Informacion_Rutas'
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
           <Route path="payment" element={<Payment/>} /> 
           <Route path="payment-method" element={<PaymentMethod/>} />
           <Route path="membership" element={<Membership/>} />
+          <Route path="search_routes" element={<Search_Routes/>} />  
+          <Route path="/item/:id" element={<Informacion_Rutas/>} />  
       </Routes>
     </BrowserRouter>
     
