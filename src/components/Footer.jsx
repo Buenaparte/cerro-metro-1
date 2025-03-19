@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         
 
-    <footer className="bg-linear-to-r bg-gray-200  w-screen bottom-0 mt-20">
+    <footer className="bg-gradient-to-r from-amber-200 to-yellow-500  w-screen bottom-0 mt-20">
                 <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                     <div className="sm:flex sm:items-center sm:justify-between">
                         <div className="sm:flex sm:items-center sm:justify-between">

@@ -18,7 +18,7 @@ export default function Formato_Rutas({Ruta}) {
             />
         
             <div className=" p-4 sm:p-6">
-            <time datetime="2022-10-10" className="block text-xs text-gray-500"> 10th Oct 2022 </time>
+            <a className="block text-xs text-gray-500"> Ruta </a>
         
             <a href="#">
                 <h1 className="mt-0.5 text-4xl text-orange-600 font-bold">{Ruta.Titulo}</h1>

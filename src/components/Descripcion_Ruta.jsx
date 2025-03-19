@@ -7,7 +7,7 @@ export default function descripcion_Ruta({Ruta}) {
     <>
 
         <section
-        className="relative bg-cover bg-center bg-no-repeat font-bold text-white"
+        className="relative bg-cover bg-center bg-no-repeat font-semibold text-white"
         style={{ backgroundImage: `url(${Ruta.Imagen})` }}
         >
         <div
@@ -22,7 +22,7 @@ export default function descripcion_Ruta({Ruta}) {
             <h1 className="text-xl font-bold sm:text-5xl text-white">
                RUTA: 
 
-                <strong className="block font-bold text-orange-600 uppercase text-7xl"> {Ruta.Titulo} </strong>
+                <strong className="block font-bold uppercase text-7xl bg-gradient-to-tr from-orange-400 to-orange-600 bg-clip-text text-transparent"> {Ruta.Titulo} </strong>
             </h1>
 
             <p className="mt-4 max-w-lg sm:text-sm/relaxed">
@@ -30,7 +30,7 @@ export default function descripcion_Ruta({Ruta}) {
                 {Ruta.Descripcion2}
                 
             </p>
-            <h2 className="mt-10">Actividades extras :</h2>
+            
             </div>
         </div>
         </section>

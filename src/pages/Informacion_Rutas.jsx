@@ -56,16 +56,14 @@ export default function informacion_rutas() {
         <div>
         {item && <Descripcion_Ruta Ruta={item} />}
         </div>
+        <div className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">ACTIVIDADES EXTRAS</div>
         <div>
             { productos.map((prod) => <Actividades Ruta={prod} key={prod.id} />) }
         </div><br></br>
         {logged && (
                     <>
-                        <div className="text-center">
-                          <button>Crear Actividades</button>
-                          <br />
-                          <br />
-                          <Creacion_Actividades id={id} />
+                        <div className="flex flex-col items-center">
+                            <Creacion_Actividades id={id}/>
                         </div>
                     </>
         )}
@@ -75,3 +73,4 @@ export default function informacion_rutas() {
     </>
     )
 }
+

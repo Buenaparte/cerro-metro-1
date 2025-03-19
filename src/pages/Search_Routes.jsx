@@ -38,9 +38,14 @@ export default function search_routes() {
 
   return (
     <>
-    <div className="bg-gray-800">
+    <div className="bg-gray-800 w-screen">
       <Header_NoSession/>
-      <Boton_primario text="Crear Rutas" link="/Creacion_Rutas"/>
+      <div className="bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
+        RUTAS DISPONIBLES</div>
+      <div className=" mt-10 ml-10 text-center">
+        <Boton_primario  text="Crear Rutas" link="/Creacion_Rutas"/>
+      </div>
+      
       <div className="productos text-start rounded-2xl">
               { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
       </div>
