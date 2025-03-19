@@ -3,6 +3,9 @@ import { app } from "../credentials";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
+
+// Usa --> const {logged,profile, setLogged} = profileContext para tener información del usuario logueado
+
 const UserContext = createContext(null);
 
 const auth = getAuth(app)

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { use } from "react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { doc, getDoc,collection, getDocs, query, where } from "firebase/firestore";
@@ -7,6 +7,8 @@ import Header_NoSession from '../components/Header_NoSession'
 import Actividades from '../components/Actividades'
 import Descripcion_Ruta from '../components/Descripcion_Ruta'
 import Creacion_Actividades from '../components/Creacion_Actividades'
+import { UserContext } from "../components/User_Context";
+import Footer from "../components/Footer";
 
 export default function informacion_rutas() {
 
@@ -14,6 +16,8 @@ export default function informacion_rutas() {
     const [productos, setProductos] = useState([]);
     const categoria = useParams().categoria;
     const id = useParams().id;
+    const profileContext = use(UserContext)
+    const {logged,profile} = profileContext
 
 
     useEffect(() => {
@@ -47,16 +51,27 @@ export default function informacion_rutas() {
 
     return(
     <>
+      <div className="Container ">
         <Header_NoSession/>
         <div>
         {item && <Descripcion_Ruta Ruta={item} />}
-    </div>
-    <div>
-        { productos.map((prod) => <Actividades Ruta={prod} key={prod.id} />) }
-    </div><br></br>
-    <button>Crear Actividades</button><br></br>
-    <br></br>
-    <Creacion_Actividades id={id}/>
+        </div>
+        <div>
+            { productos.map((prod) => <Actividades Ruta={prod} key={prod.id} />) }
+        </div><br></br>
+        {logged && (
+                    <>
+                        <div className="text-center">
+                          <button>Crear Actividades</button>
+                          <br />
+                          <br />
+                          <Creacion_Actividades id={id} />
+                        </div>
+                    </>
+        )}
+        <Footer/>
+          
+      </div>
     </>
     )
 }
