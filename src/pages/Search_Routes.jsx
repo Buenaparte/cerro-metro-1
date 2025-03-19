@@ -8,6 +8,7 @@ import Buscador from '../components/Buscador'
 import Formato_Rutas from '../components/Formato_Rutas'
 import Boton_primario from '../components/Boton_primario'
 import Footer from '../components/Footer';
+import no_image from "../assets/no_image.png"
 
 
 export default function search_routes() {
@@ -27,7 +28,10 @@ export default function search_routes() {
 
         setProductos(
           resp.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id }
+            const data = doc.data();
+            return { ...doc.data(), id: doc.id ,
+              Imagen: data.Imagen || no_image
+            }
           })
         )
       })

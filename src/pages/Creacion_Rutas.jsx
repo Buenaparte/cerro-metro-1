@@ -10,6 +10,7 @@ import Header_NoSession from '../components/Header_NoSession'
 import Footer from '../components/Footer';
 import Boton_secundario from '../components/Boton_secundario';
 import { useNavigate } from 'react-router';
+import no_image from "../assets/no_image.png"
 
 export default function Creacion_rutas() {
 
@@ -32,6 +33,9 @@ export default function Creacion_rutas() {
 
             setIsUploading(true);
             const imageUrl = await uploadImage(file, 'foto-perfil');
+            if(imageUrl==""){
+              imageUrl= await uploadImage(no_image);
+            }
             setImagen(imageUrl)
           } catch (error) {
             alert('Error al subir la imagen');
@@ -122,7 +126,7 @@ alert("Creacion exitosa, por favor recarge la pagina")
               </div><br></br>
               <br></br>
               <div className="text-center">
-                <button className="bg-gradient-to-r from-lime-400 to-lime-600 hover:bg-orange-700 active:bg-orange-900 font-semibold rounded-xl w-35 h-12 text-amber-50 
+                <button className="bg-lime-500 hover:bg-orange-700 active:bg-orange-900 font-semibold rounded-xl w-35 h-12 text-amber-50 
                   transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 position:relative"
                   type="submit">Crear nueva ruta
                 </button><br></br> 
