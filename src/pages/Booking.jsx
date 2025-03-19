@@ -95,18 +95,21 @@ export function Booking() {
   }, [usuario]);
 
   return (
-    <div>
-      <Header_NoSession />
-      <h1>Reserva tu Ruta</h1>
-      <DatePicker
-        selected={fechaSeleccionada}
-        onChange={handleSeleccionFecha}
-        minDate={new Date()} 
-        excludeDates={fechasOcupadas} 
-        dateFormat="yyyy-MM-dd"
-        inline
-      />
-      <button onClick={handleContinuar}>Continuar</button>
-    </div>
+    <>
+      <Header_NoSession/>
+      <div>
+        <h1>Reserva tu Ruta</h1>
+        <DatePicker
+          className="bg-gray-600"
+          selected={fechaSeleccionada}
+          onChange={handleSeleccionFecha}
+          minDate={new Date()} 
+          excludeDates={fechasOcupadas} 
+          dateFormat="yyyy-MM-dd"
+          inline
+        />
+        <button onClick={handleContinuar}>Continuar</button>
+      </div>
+    </>
   );
 }

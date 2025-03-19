@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Logo_responsive } from './Logo_responsive'
+import Footer from './Footer'
 
 export default function Frame1_Home() {
     const style = {
@@ -11,6 +12,7 @@ export default function Frame1_Home() {
     }
   return (
     <div className="bg-white relative w-screen" style={style}>
+
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
                 <h2 className="text-base/7 font-semibold text-orange-600">CERRO METRO</h2>
@@ -66,32 +68,7 @@ export default function Frame1_Home() {
                 </dl>
             </div>
         </div>
-        <footer className="bg-gray-300  w-screen bottom-0 mt-20">
-            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                        <Logo_responsive className="!relative !w-[201.72px] !h-[80px]" />
-                        <span className="self-center text-4xl font-bold whitespace-nowrap text-gray-900">CERRO METRO</span>
-                    </a>
-                    <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-900 sm:mb-0 dark:text-gray-400">
-                        <li>
-                            <Link className="hover:underline me-4 md:me-6 text-gray-900">About</Link>
-                        </li>
-                        <li>
-                            <Link className="hover:underline me-4 md:me-6 text-gray-900">Privacy Policy</Link>
-                        </li>
-                        <li>
-                            <Link className="hover:underline me-4 md:me-6 text-gray-900">Licensing</Link>
-                        </li>
-                        <li>
-                            <Link className="hover:underline text-gray-900">Contact</Link>
-                        </li>
-                    </ul>
-                </div>
-                <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-800 lg:my-8" />
-                <span className="block text-sm text-gray-700 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/" className="hover:underline">CERRO METRO™</a>. All Rights Reserved.</span>
-            </div>
-        </footer>
+        <Footer />
     </div>
     
   )
