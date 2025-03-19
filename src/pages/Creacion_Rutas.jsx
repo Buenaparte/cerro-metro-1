@@ -64,7 +64,7 @@ export default function Creacion_rutas() {
     Dificultad: Dificultad,
     Imagen: Imagen,
     Imagen2: Imagen2,
-    id: id
+    Numeral: id
 }
 
 const pedidosRef = collection(db, "Rutas");
@@ -87,7 +87,7 @@ addDoc(pedidosRef, pedido)
         <br></br>
         <label>
         <p> Resumen de la ruta </p>
-        <input type='text'></input>
+        <input type='text'value={Descripcion} onChange={(e)=>setDescripcion(e.target.value)}></input>
         </label>
         <br></br>
         <label>
@@ -97,12 +97,12 @@ addDoc(pedidosRef, pedido)
         <br></br>
         <label>
         <p> Descripcion detallada de la ruta </p>
-        <input type='text' ></input>
+        <input type='text'value={Descripcion2} onChange={(e)=>setDescripcion2(e.target.value)} ></input>
         </label>
         <br></br>
         <label>
         <p> Dificultad de la ruta </p>
-        <input type='text' ></input>
+        <input  type="number" min="0" max={5} value={Dificultad} onChange={(e)=>setDificultad(e.target.value)}></input>
         </label>
         <br></br>
         <label>

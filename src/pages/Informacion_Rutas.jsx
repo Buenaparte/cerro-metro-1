@@ -6,6 +6,7 @@ import { db } from "../credentials";
 import Header_NoSession from '../components/Header_NoSession'
 import Actividades from '../components/Actividades'
 import Descripcion_Ruta from '../components/Descripcion_Ruta'
+import Creacion_Actividades from '../components/Creacion_Actividades'
 
 export default function informacion_rutas() {
 
@@ -13,7 +14,7 @@ export default function informacion_rutas() {
     const [productos, setProductos] = useState([]);
     const categoria = useParams().categoria;
     const id = useParams().id;
-    console.log(id)
+
 
     useEffect(() => {
 
@@ -29,8 +30,8 @@ export default function informacion_rutas() {
     
  useEffect(() => {
 
-    const productosRef = collection(db, "Actividades");
-    const q = categoria ? query(productosRef, where("Id-Ruta", "==", item.id )) : productosRef;
+    const productosRef = collection(db, "Actividades");   
+    const q = query(productosRef, where("Id-Ruta", "==", id )) ;
 
     getDocs(q)
       .then((resp) => {
@@ -52,7 +53,10 @@ export default function informacion_rutas() {
     </div>
     <div>
         { productos.map((prod) => <Actividades Ruta={prod} key={prod.id} />) }
-    </div>
+    </div><br></br>
+    <button>Crear Actividades</button><br></br>
+    <br></br>
+    <Creacion_Actividades id={id}/>
     </>
     )
 }
