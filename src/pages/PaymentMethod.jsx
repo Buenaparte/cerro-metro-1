@@ -28,9 +28,7 @@ export function PaymentMethod() {
   return (
     <div>
       <h1>Selecciona tu método de pago</h1>
-      <button>Tarjeta de Crédito</button>
-      <button>Pago Móvil</button>
-      <button>Transferencia Bancaria</button>
+      
       <button onClick={() => setMostrarFormulario(true)}>Pagar con PayPal</button>
 
       {mostrarFormulario && (

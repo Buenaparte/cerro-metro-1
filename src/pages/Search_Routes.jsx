@@ -7,6 +7,8 @@ import Header_NoSession from '../components/Header_NoSession'
 import Buscador from '../components/Buscador'
 import Formato_Rutas from '../components/Formato_Rutas'
 import Boton_primario from '../components/Boton_primario'
+import Footer from '../components/Footer';
+import no_image from "../assets/no_image.png"
 
 
 export default function search_routes() {
@@ -26,21 +28,34 @@ export default function search_routes() {
 
         setProductos(
           resp.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id }
+            const data = doc.data();
+            return { ...doc.data(), id: doc.id ,
+              Imagen: data.Imagen || no_image
+            }
           })
         )
       })
       
   }, [categoria])
 
+  console.log(productos)
+
   return (
     <>
-    <Header_NoSession/>
-    <Buscador/>
-    <div className="productos">
-            { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
-        </div>
-         <Boton_primario text="Crear Rutas" link="/Creacion_Rutas"/>
+    <div className="bg-gray-800 w-screen">
+      <Header_NoSession/>
+      <div className="bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
+        RUTAS DISPONIBLES</div>
+      <div className=" mt-10 ml-10 text-center">
+        <Boton_primario  text="Crear Rutas" link="/Creacion_Rutas"/>
+      </div>
+      
+      <div className="productos text-start rounded-2xl">
+              { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
+      </div>
+        
+      <Footer/>
+    </div>
     </> 
   )
 }
