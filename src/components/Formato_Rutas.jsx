@@ -9,7 +9,7 @@ export default function Formato_Rutas({Ruta}) {
     }
     return(
         <>
-        <div className="container mx-auto w-xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 hover:shadow position:relative">
+        <div className=" bg-white mt-8 rounded-2xl container mx-auto w-xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 hover:shadow position:relative">
             <article className="overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg">
             <img
             alt="Article Image"
@@ -17,7 +17,7 @@ export default function Formato_Rutas({Ruta}) {
             className="h-56 w-full object-cover"
             />
         
-            <div className="bg-white p-4 sm:p-6">
+            <div className=" p-4 sm:p-6">
             <time datetime="2022-10-10" className="block text-xs text-gray-500"> 10th Oct 2022 </time>
         
             <a href="#">

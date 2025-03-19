@@ -7,6 +7,7 @@ import Header_NoSession from '../components/Header_NoSession'
 import Buscador from '../components/Buscador'
 import Formato_Rutas from '../components/Formato_Rutas'
 import Boton_primario from '../components/Boton_primario'
+import Footer from '../components/Footer';
 
 
 export default function search_routes() {
@@ -37,17 +38,15 @@ export default function search_routes() {
 
   return (
     <>
-    <Header_NoSession/>
-    <Buscador/>
-<<<<<<< HEAD
-    <div className="productos">
-=======
-    <Filtro/>
-    <div className="productos text-start rounded-2xl">
->>>>>>> Luis-Angulo
-            { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
-        </div>
-         <Boton_primario text="Crear Rutas" link="/Creacion_Rutas"/>
+    <div className="bg-gray-800">
+      <Header_NoSession/>
+      <Boton_primario text="Crear Rutas" link="/Creacion_Rutas"/>
+      <div className="productos text-start rounded-2xl">
+              { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
+      </div>
+        
+      <Footer/>
+    </div>
     </> 
   )
 }
