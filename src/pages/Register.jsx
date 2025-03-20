@@ -4,12 +4,16 @@ import {app} from "../credentials";
 import { Link, useNavigate } from 'react-router-dom';
 import { Logo_responsive } from '../components/Logo_responsive';
 import {query,where, doc, getFirestore, setDoc, getDocs,collection } from 'firebase/firestore';
+import Dropdown from '../components/Dropdown';
 
 const db = getFirestore(app)
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 export default function Register() {
+  const [userType, setUserType] = useState('');
+
+
   const navigation = useNavigate()
   const [name, setName] = useState('')
   const [apellido, setApellido] = useState('')
@@ -18,6 +22,20 @@ export default function Register() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [selectedItem, setSelectedItem] = useState('');
+  const dropdownItems = ['Excursionista', 'Guía'];
+    
+      const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+      };
+  
+      const handleSelectItem = (item) => {
+          setSelectedItem(item);
+          setUserType(item); 
+          setIsOpen(false);
+        };
+    
 
   const handleRegister= async(e)=>{
     e.preventDefault()
@@ -31,11 +49,17 @@ export default function Register() {
         nombre:name,
         apellido: apellido,
         telefono:telefono,
+        tipoUsuario:userType,
         email:email,
         uid: nombreRegistrado.user.uid,
         fechaCreacion : new Date()
 
       })
+      console.log("Tipo de usuario" + userType)
+      if(userType===""){
+        setError('Debe seleccionar un tipo de usuario')
+        throw new Error('Debe seleccionar un tipo de usuario')
+      }
       setName('')
       setEmail('')
       setPassword('')
@@ -140,6 +164,29 @@ export default function Register() {
                   <input value={password} onChange={(e)=>setPassword(e.target.value)} className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 
                 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" type="password" name="password"/>
               </label>
+              <button
+          className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+          onClick={toggleDropdown}
+        >
+          {selectedItem || 'Dropdown Button'}
+          <svg
+            className="fill-current h-4 w-4 ml-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+          </svg>
+        </button>
+        <ul className={`absolute ${isOpen ? 'block' : 'hidden'} bg-white text-gray-800 pt-1`}>
+          {dropdownItems.map((item, index) => (
+            <li key={index} 
+            className="hover:bg-gray-200 py-2 px-4"
+            onClick={() => handleSelectItem(item)}>
+              {item}
+            </li>
+          ))}
+        </ul>
+              <p>Tipo de usuario seleccionado: {userType}</p>
+              <br></br>
               <button type="submit" className="bg-orange-600 hover:bg-orange-950 active:bg-orange-600 font-bold shadow-xl rounded-xl w-30 h-8 text-amber-50 text-xl 
               transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100">
                 Ingresar</button>
