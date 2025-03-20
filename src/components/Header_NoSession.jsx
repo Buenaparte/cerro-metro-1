@@ -46,10 +46,14 @@ export default function Header_NoSession() {
                     Membresías
                   </Link>
                 <div className="w-0.5 h-7 bg-orange-950 rounded" />
-                <Link to="/search_routes" className={principal_colors}>
-                  Agenda
-                </Link>
-              </div>
+                  <Link to="/search_routes" className={principal_colors}>
+                    Rutas
+                  </Link>
+                <div className="w-0.5 h-7 bg-orange-950 rounded" />
+                  <Link to="/Notas" className={principal_colors}>
+                    Notas
+                  </Link>
+                </div>
               <div className="flex gap-6">
                 {!logged?(
                   <>

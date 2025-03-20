@@ -15,16 +15,16 @@ export default function Actividades({Ruta}) {
             </a>
 
             <a href="#">
-                <h1 className="mt-0.5 text-4xl text-orange-600 font-bold">Guía: {Ruta.Guia}</h1>
+                <h1 className="mt-0.5 text-4xl text-orange-600 font-bold">Guía: {" "+Ruta.Guia}</h1>
             </a>
 
             <a href="#">
-                <h1 className="mt-0.5 text-xl text-gray-600 font-bold">Tiempo: {Ruta.Tiempo} minutos</h1>
+                <h1 className="mt-0.5 text-xl text-gray-600 font-semibold">Tiempo: {" "+Ruta.Tiempo} minutos</h1>
             </a>
         
-            <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+            <p className="mt-1 line-clamp-3 text-sm/relaxed text-gray-500">
             Descripción: 
-            {Ruta.Descripcion}
+            {" "+Ruta.Descripcion}
             </p>
             </div>
             <div className='text-right mb-5 mr-5' >

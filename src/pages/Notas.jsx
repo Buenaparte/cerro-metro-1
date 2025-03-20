@@ -41,9 +41,10 @@ export default function search_routes() {
     <>
     <div className="bg-gray-800 w-screen">
       <Header_NoSession/>
-      <div>
-        Notas informativass</div>
-      <div >
+      <div className="bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
+        NOTAS DISPONIBLES</div>
+
+      <div className="mt-10 text-center">
         <Boton_primario  text="Crear Notas" link="/Crear_Notas"/>
       </div>
       <div className="productos text-start rounded-2xl">

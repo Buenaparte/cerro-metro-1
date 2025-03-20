@@ -53,7 +53,7 @@ export default function search_routes() {
         RUTAS DISPONIBLES</div>
         
       {profile.tipoUsuario === "Guia" &&(
-        <div className=" mt-10 ml-10 text-center">
+        <div className=" mt-10  text-center">
         <Boton_primario  text="Crear Rutas" link="/Creacion_Rutas"/>
         </div>
     )}

@@ -57,7 +57,8 @@ export default function informacion_Notas() {
         {item && <Descripcion_nota Ruta={item} />}
         </div>
         <div className=" p-4 sm:p-6">
-         <a className="block text-xs text-gray-500"> Comentarios </a>
+        <div className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
+          COMENTARIOS</div>
         
         <div/>
             { productos.map((prod) => <Comentarios Ruta={prod} key={prod.id} />) }

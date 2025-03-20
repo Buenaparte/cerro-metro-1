@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../credentials"; 
@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import Boton_secundario from '../components/Boton_secundario';
 import { useNavigate } from 'react-router';
 import no_image from "../assets/no_image.png"
+import { UserContext } from './User_Context';
 
 export default function Creacion_Comentarios({id}) {
 
@@ -21,14 +22,16 @@ export default function Creacion_Comentarios({id}) {
   const [Descripcion2, setDescripcion2] = useState('')
   const [Imagen, setImagen] = useState('')
   const [Imagen2, setImagen2] = useState('')
- const { register, handleSubmit } = useForm();
- const [isUploading, setIsUploading] = useState(false);
+  const { register, handleSubmit } = useForm();
+  const [isUploading, setIsUploading] = useState(false);
+  const profileContext = use(UserContext)
+  const {logged,profile, setLogged} = profileContext
 
   const comprar = () => {
    const pedido = {
     Titulo: Titulo,
     Descripcion: Descripcion,
-    Numeral: id
+    Numeral: id,
 }
 
 const pedidosRef = collection(db, "Comentarios");
@@ -54,7 +57,7 @@ alert("Creacion exitosa, por favor recarge la pagina")
                 <label for="floating_outlined" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Comentario</label>              
               </div >
               <div className="text-center">
-                <button className="bg-lime-500 hover:bg-orange-700 active:bg-orange-900 font-semibold rounded-xl w-35 h-12 text-amber-50 
+                <button className="mt-10 bg-lime-500 hover:bg-orange-700 active:bg-orange-900 font-semibold rounded-xl w-35 h-12 text-amber-50 
                   transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 position:relative"
                   type="submit">Subir Comentario
                 </button><br></br> 
