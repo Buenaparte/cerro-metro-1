@@ -12,6 +12,9 @@ import { Membership } from './pages/Membership'
 import Search_Routes from './pages/Search_Routes'
 import Informacion_Rutas from './pages/Informacion_Rutas'
 import Creacion_Rutas from './pages/Creacion_Rutas'
+import Notas from './pages/Notas'
+import Crear_Notas from './pages/Crear_Notas'
+import Informacion_Notas from './pages/informacion_Notas'
 
 export default function App() {
   return (
@@ -27,8 +30,11 @@ export default function App() {
           <Route path="payment-method" element={<PaymentMethod/>} />
           <Route path="membership" element={<Membership/>} />
           <Route path="search_routes" element={<Search_Routes/>} />
-          <Route path="Creacion_Rutas" element={<Creacion_Rutas/>} />   
+          <Route path="Creacion_Rutas" element={<Creacion_Rutas/>} />
+          <Route path="Notas" element={<Notas/>} /> 
+          <Route path="Crear_Notas" element={<Crear_Notas/>} />   
           <Route path="/item/:id" element={<Informacion_Rutas/>} />  
+          <Route path="/Nota/:id" element={<Informacion_Notas/>} />  
       </Routes>
     </BrowserRouter>
     
