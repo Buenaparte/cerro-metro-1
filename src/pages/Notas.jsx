@@ -1,31 +1,23 @@
-import React, { use } from 'react'
+import React from 'react'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from "../credentials"; 
 import Header_NoSession from '../components/Header_NoSession'
-import Formato_Rutas from '../components/Formato_Rutas'
+import Formato_Notas from '../components/Formato_Notas'
 import Boton_primario from '../components/Boton_primario'
 import Footer from '../components/Footer';
 import no_image from "../assets/no_image.png"
-import { UserContext } from '../components/User_Context';
 
 
 export default function search_routes() {
-  const profileContext = use(UserContext)
-  const {logged,profile} = profileContext
   const [productos, setProductos] = useState([]);
-  const [isGuia, setIsGuia] = useState(false)
-
-  const [titulo, setTitulo] = useState("Rutas");
-
+  const [titulo, setTitulo] = useState("Notas");
   const categoria = useParams().categoria;
-
-  
 
   useEffect(() => {
 
-    const productosRef = collection(db, "Rutas");
+    const productosRef = collection(db, "Notas");
     const q = categoria ? query(productosRef, where("categoria", "==", categoria)) : productosRef;
 
     getDocs(q)
@@ -49,17 +41,13 @@ export default function search_routes() {
     <>
     <div className="bg-gray-800 w-screen">
       <Header_NoSession/>
-      <div className="bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
-        RUTAS DISPONIBLES</div>
-        
-      {profile.tipoUsuario === "Guia" &&(
-        <div className=" mt-10 ml-10 text-center">
-        <Boton_primario  text="Crear Rutas" link="/Creacion_Rutas"/>
-        </div>
-    )}
-      
+      <div>
+        Notas informativass</div>
+      <div >
+        <Boton_primario  text="Crear Notas" link="/Crear_Notas"/>
+      </div>
       <div className="productos text-start rounded-2xl">
-              { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }
+              { productos.map((prod) => <Formato_Notas Ruta={prod} key={prod.id} />) }
       </div>
         
       <Footer/>

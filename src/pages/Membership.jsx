@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import Header_NoSession from "../components/Header_NoSession";
 import Footer from "../components/Footer";
 
 export function Membership() {
   const [plan, setPlan] = useState("mensual");
+  const navigation = useNavigate();
+
 
   return (
     <>
@@ -66,7 +69,7 @@ export function Membership() {
         </div>
         
         <p className="text-center">
-          <button className="bg-blue-500 hover:bg-blue-700 active:bg-blue-900 font-bold shadow-xl rounded-xl w-65 h-8 text-amber-50 text-xl 
+          <button onClick={()=> navigation("/")}   className="bg-blue-500 hover:bg-blue-700 active:bg-blue-900 font-bold shadow-xl rounded-xl w-65 h-8 text-amber-50 text-xl 
               transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 position:relative">
             Mejorar el Plan
           </button>

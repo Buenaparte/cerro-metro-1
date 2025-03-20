@@ -1,7 +1,7 @@
 import React from "react";
 import Boton_primario from './Boton_primario'
 
-export default function descripcion_Ruta({Ruta}) {
+export default function descripcion_nota({Ruta}) {
     console.log(Ruta)
     return(
     <>
@@ -18,15 +18,12 @@ export default function descripcion_Ruta({Ruta}) {
             className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
         >
             <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right ">
-            <h1>Dificultad: {Ruta.Dificultad}/5 </h1>
-            <h1 className="text-xl font-bold sm:text-5xl text-white">
-               RUTA: 
+            <h1 className="text-xl font-bold sm:text-5xl text-white">   
 
                 <strong className="block font-bold uppercase text-7xl bg-gradient-to-tr from-orange-400 to-orange-600 bg-clip-text text-transparent"> {Ruta.Titulo} </strong>
             </h1>
 
             <p className="mt-4 max-w-lg sm:text-sm/relaxed">
-                Descripcion de la Ruta:
                 {Ruta.Descripcion2}
                 
             </p>
