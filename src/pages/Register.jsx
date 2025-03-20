@@ -4,7 +4,7 @@ import {app} from "../credentials";
 import { Link, useNavigate } from 'react-router-dom';
 import { Logo_responsive } from '../components/Logo_responsive';
 import {query,where, doc, getFirestore, setDoc, getDocs,collection } from 'firebase/firestore';
-import Dropdown from '../components/Dropdown';
+
 
 const db = getFirestore(app)
 const auth = getAuth(app);
