@@ -7,6 +7,7 @@ import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../credentials";  
 import Header_NoSession from '../components/Header_NoSession';
+import Footer from "../components/Footer";
 
 export function Booking() {
   const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
@@ -96,20 +97,26 @@ export function Booking() {
 
   return (
     <>
-      <Header_NoSession/>
-      <div>
-        <h1>Reserva tu Ruta</h1>
-        <DatePicker
-          className="bg-gray-600"
-          selected={fechaSeleccionada}
-          onChange={handleSeleccionFecha}
-          minDate={new Date()} 
-          excludeDates={fechasOcupadas} 
-          dateFormat="yyyy-MM-dd"
-          inline
-        />
-        <button onClick={handleContinuar}>Continuar</button>
+      <div className="Container bg-gray-700 h-screen">
+        <Header_NoSession/>
+        <div className="text-center h-svh mx-auto mt-10 mb-10 flex flex-col bg-white rounded-2xl w-xl justify-center items-center shadow-black shadow-2xl">
+          <h1 className="mt-5 font-bold text-orange-600 text-3xl">Reserva tu Ruta</h1>
+          <div className="">
+            <DatePicker
+            className="bg-gray-900 absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            selected={fechaSeleccionada}
+            onChange={handleSeleccionFecha}
+            minDate={new Date()} 
+            excludeDates={fechasOcupadas} 
+            dateFormat="yyyy-MM-dd"
+            inline
+            />
+            
+          </div>
+          <button classNameonClick={handleContinuar}>Continuar</button>
+        </div>
       </div>
+      
     </>
   );
 }
