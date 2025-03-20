@@ -113,7 +113,7 @@ export function Booking() {
             />
             
           </div>
-          <button classNameonClick={handleContinuar}>Continuar</button>
+          <button className="tu-clase-aqui" onClick={handleContinuar}>Continuar</button>
         </div>
       </div>
       
