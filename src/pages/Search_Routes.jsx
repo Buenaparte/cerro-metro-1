@@ -16,10 +16,13 @@ export default function search_routes() {
   const profileContext = use(UserContext)
   const {logged,profile} = profileContext
   const [productos, setProductos] = useState([]);
+  const [isGuia, setIsGuia] = useState(false)
 
   const [titulo, setTitulo] = useState("Rutas");
 
   const categoria = useParams().categoria;
+
+  
 
   useEffect(() => {
 
@@ -50,7 +53,7 @@ export default function search_routes() {
       <div className="bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
         RUTAS DISPONIBLES</div>
         
-      {logged && (
+      {profile.tipoUsuario === "Guia" &&(
         <div className=" mt-10 ml-10 text-center">
         <Boton_primario  text="Crear Rutas" link="/Creacion_Rutas"/>
         </div>

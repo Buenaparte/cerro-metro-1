@@ -17,6 +17,7 @@ const UserProvider = ({children}) => {
     const [user, setUser] = useState("")
     const [profile, setProfile] = useState({})
     const [logged, setLogged] = useState(false)
+    const [isGuia, setIsGuia] = useState(false)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async(userConnected)=>{
@@ -49,7 +50,7 @@ const UserProvider = ({children}) => {
     }, [])
     
 
-    return(<UserContext value={{user,setUser, profile, setProfile, logged, setLogged}}>{children}</UserContext>)
+    return(<UserContext value={{user,setUser, profile, setProfile, logged, setLogged, isGuia}}>{children}</UserContext>)
 }
 
 export {UserContext, UserProvider}

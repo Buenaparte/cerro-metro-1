@@ -14,6 +14,7 @@ export default function Profile() {
         <>
             <Header_NoSession/>
             <div>{profile.email}</div>
+            <div>{profile.tipoUsuario}</div>
         </>
     )
 }
