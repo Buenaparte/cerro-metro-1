@@ -32,7 +32,7 @@ export default function Creacion_rutas() {
         try {
 
             setIsUploading(true);
-            const imageUrl = await uploadImage(file, 'foto-perfil');
+            let imageUrl = await uploadImage(file, 'foto-perfil');
             if(imageUrl==""){
               imageUrl= await uploadImage(no_image);
             }
@@ -102,11 +102,7 @@ alert("Creacion exitosa, por favor recarge la pagina")
                 <label for="floating_outlined" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Descripcion Ruta</label>
               
               </div >
-              <br></br>
-              <div className="relative">
-                <p> Imagen de la ruta </p>
-                <input type='file' accept='image/*'  onChange={handleFileChange} disabled={isUploading}  ></input>
-                </div >        <br></br>
+
               <br></br>
               <div className="relative">
                 <input type='text'value={Descripcion2} onChange={(e)=>setDescripcion2(e.target.value)}  id="floating_outlined" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "></input>
@@ -121,9 +117,34 @@ alert("Creacion exitosa, por favor recarge la pagina")
               </div>
               <br></br>
               <div className="relative">
-                <p> Imagen de la pagina principal </p>
-                <input type='file' accept='image/*'  onChange={handleFileChange2} disabled={isUploading} ></input>
-              </div><br></br>
+                <label className="block mb-2 text-sm font-semibold text-gray-900" 
+                for="large_size">Imagen Principal</label>
+                <input accept='image/*'  onChange={handleFileChange} disabled={isUploading} className="text-sm text-grey-500
+                  file:mr-5 file:py-2 file:px-6
+                  file:rounded-full file:border-0
+                  file:text-sm file:font-medium
+                  file:bg-blue-50 file:text-blue-700
+                  hover:file:cursor-pointer hover:file:bg-amber-50
+                  hover:file:text-orange-700" 
+                  id="large_size" type="file">
+
+                </input>
+              </div>
+              <br></br>
+              <div className="relative">
+              <label className="block mb-2 text-sm font-semibold text-gray-900" 
+                for="large_size">Imagen Secundaria</label>
+                <input accept='image/*'  onChange={handleFileChange2} disabled={isUploading} className="text-sm text-grey-500
+                  file:mr-5 file:py-2 file:px-6
+                  file:rounded-full file:border-0
+                  file:text-sm file:font-medium
+                  file:bg-blue-50 file:text-blue-700
+                  hover:file:cursor-pointer hover:file:bg-amber-50
+                  hover:file:text-orange-700" 
+                  id="large_size" type="file">
+
+                </input>
+              </div>
               <br></br>
               <div className="text-center">
                 <button className="bg-lime-500 hover:bg-orange-700 active:bg-orange-900 font-semibold rounded-xl w-35 h-12 text-amber-50 
@@ -134,7 +155,9 @@ alert("Creacion exitosa, por favor recarge la pagina")
           </form>
           <br></br>
             <div className="mb-5">
-              <Boton_secundario text="Volver" link="/search_routes"/>
+              <button className="bg-red-500 hover:bg-red-700 active:bg-red-900 font-semibold rounded-xl w-35 h-12 text-amber-50 
+                  transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 position:relative"
+              onClick={()=>navigation("/search_routes")}>Volver</button>
             </div>
         </div>
         <Footer/>

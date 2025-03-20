@@ -8,6 +8,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../credentials";  
 import Header_NoSession from '../components/Header_NoSession';
 import Footer from "../components/Footer";
+import { Logo_responsive } from "../components/Logo_responsive";
 
 export function Booking() {
   const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
@@ -97,11 +98,12 @@ export function Booking() {
 
   return (
     <>
-      <div className="Container bg-gray-700 h-screen">
+      <div className="Container bg-gray-700 h-full w-screen">
         <Header_NoSession/>
         <div className="text-center h-svh mx-auto mt-10 mb-10 flex flex-col bg-white rounded-2xl w-xl justify-center items-center shadow-black shadow-2xl">
+          <Logo_responsive className="!relative !w-[201.72px] !h-[80px]" />
           <h1 className="mt-5 font-bold text-orange-600 text-3xl">Reserva tu Ruta</h1>
-          <div className="">
+          <div className="mt-5">
             <DatePicker
             className="bg-gray-900 absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
             selected={fechaSeleccionada}
@@ -113,8 +115,11 @@ export function Booking() {
             />
             
           </div>
-          <button classNameonClick={handleContinuar}>Continuar</button>
+          <button className=" mt-5 bg-blue-500 hover:bg-blue-700 active:bg-blue-900 font-semibold rounded-xl w-35 h-8 text-amber-50 
+                      transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 position:relative" 
+                      onClick={handleContinuar}>Continuar</button>
         </div>
+        <Footer/>
       </div>
       
     </>

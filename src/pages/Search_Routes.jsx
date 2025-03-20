@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {collection, getDocs, query, where } from 'firebase/firestore';
@@ -9,9 +9,12 @@ import Formato_Rutas from '../components/Formato_Rutas'
 import Boton_primario from '../components/Boton_primario'
 import Footer from '../components/Footer';
 import no_image from "../assets/no_image.png"
+import { UserContext } from '../components/User_Context';
 
 
 export default function search_routes() {
+  const profileContext = use(UserContext)
+  const {logged,profile} = profileContext
   const [productos, setProductos] = useState([]);
 
   const [titulo, setTitulo] = useState("Rutas");
@@ -46,9 +49,12 @@ export default function search_routes() {
       <Header_NoSession/>
       <div className="bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent text-7xl font-bold text-center mt-15 mb-15">
         RUTAS DISPONIBLES</div>
-      <div className=" mt-10 ml-10 text-center">
+        
+      {logged && (
+        <div className=" mt-10 ml-10 text-center">
         <Boton_primario  text="Crear Rutas" link="/Creacion_Rutas"/>
-      </div>
+        </div>
+    )}
       
       <div className="productos text-start rounded-2xl">
               { productos.map((prod) => <Formato_Rutas Ruta={prod} key={prod.id} />) }

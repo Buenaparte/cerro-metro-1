@@ -37,8 +37,8 @@ export function Payment() {
         <p className="text-sm">Fecha reservada: {reservedDate}</p>
         <form>
           <div className="mb-4">
-            <label for="floating_outlined" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-            Cantidad de personas adultas:</label>
+            
+            <label>Cantidad de personas adultas:</label>
             <input
               type="number"
               min="0"
@@ -51,9 +51,8 @@ export function Payment() {
           </div>
 
           <div className="mb-4">
-            <label>Cantidad de niños o ancianos:</label>
-            <label for="floating_outlined" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-            Cantidad de niños o ancianos:</label>
+            <label>Cantidad de niños o adultos mayores:</label>
+            
             <input
               type="number"
               min="0"

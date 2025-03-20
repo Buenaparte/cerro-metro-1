@@ -13,7 +13,7 @@ export default function Profile() {
     return (
         <>
             <Header_NoSession/>
-            <div>hola</div>
+            <div>{profile.email}</div>
         </>
     )
 }
